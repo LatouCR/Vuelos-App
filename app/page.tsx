@@ -145,9 +145,9 @@ export default function Home() {
                       <circle cx="24" cy="24" r="24" fill="#EFF5FF"></circle>
                       <path
                         fill="#0E68FF"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="m31.914 27.328-15.83-4.24a.997.997 0 0 1-.74-.97v-3.75c0-.33.31-.57.63-.48l.33.09c.31.08.55.3.67.59l.75 1.86 4.98 1.32v-6.88c0-.71.67-1.22 1.35-1.04.36.1.64.37.75.73l2.58 8.45 5.31 1.42c.8.22 1.27 1.04 1.06 1.84-.22.8-1.04 1.27-1.84 1.06zm-15.84 3.15h17c.55 0 1 .45 1 1s-.45 1-1 1h-17c-.55 0-1-.45-1-1s.45-1 1-1z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       ></path>
                       <path
                         fill="#0E68FF"
@@ -197,9 +197,9 @@ export default function Home() {
                       <circle cx="24" cy="24" r="24" fill="#EFF5FF"></circle>
                       <path
                         fill="#0E68FF"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M31.87 19.817c.8-.21 1.62.26 1.84 1.06.21.8-.27 1.62-1.07 1.84l-15.82 4.24c-.43.11-.89-.08-1.12-.47l-1.88-3.25a.492.492 0 0 1 .3-.73l.33-.09c.31-.08.63-.01.88.18l1.57 1.24 4.97-1.33-3.44-5.96c-.35-.61-.03-1.39.65-1.58.36-.1.75-.01 1.02.25l6.46 6.02 5.31-1.42zm-16.73 10.42h17c.55 0 1 .45 1 1s-.45 1-1 1h-17c-.55 0-1-.45-1-1s.45-1 1-1z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       ></path>
                       <path
                         fill="#0E68FF"
@@ -234,7 +234,7 @@ export default function Home() {
                       fill="#0E68FF"
                       fill-rule="evenodd"
                       d="m31.914 27.328-15.83-4.24a.997.997 0 0 1-.74-.97v-3.75c0-.33.31-.57.63-.48l.33.09c.31.08.55.3.67.59l.75 1.86 4.98 1.32v-6.88c0-.71.67-1.22 1.35-1.04.36.1.64.37.75.73l2.58 8.45 5.31 1.42c.8.22 1.27 1.04 1.06 1.84-.22.8-1.04 1.27-1.84 1.06zm-15.84 3.15h17c.55 0 1 .45 1 1s-.45 1-1 1h-17c-.55 0-1-.45-1-1s.45-1 1-1z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                     <path
                       fill="#0E68FF"
@@ -277,8 +277,8 @@ export default function Home() {
       <section className="h-[100vh] text-black flex justify-center items-center">
 
         <div className="mx-auto max-w-screen-xl gap-10 flex">
-          <Card imageSrc="https://cdn.donmai.us/sample/ee/81/__signora_genshin_impact_drawn_by_bezvinno__sample-ee81eae0cb7526f0c0333fe198b3d0a1.jpg" heading="Carta" text="esto es un texto" />
-          <Card imageSrc="https://cdn.donmai.us/sample/52/fe/__keqing_genshin_impact_drawn_by_misuzu0342__sample-52fe6e33f2c24ee6e9d59c70caf247be.jpg" heading="Keqing a madrid" text="Cest la vie" />
+          <Card imageSrc="https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" heading="Carta" text="esto es un texto" />
+          <Card imageSrc="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" heading="Carta 2" text="Cest la vie" />
 
         </div>
 
