@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Card from "./components/Card/Card";
+import SmallCard from "./components/SmallCard/SmallCard";
 
 export default function Home() {
   return (
@@ -274,15 +275,23 @@ export default function Home() {
         </form>
       </div>
 
-      <section className="h-[100vh] text-black flex justify-center items-center">
+      <div className="p-12">
 
-        <div className="mx-auto max-w-screen-xl gap-10 flex">
-          <Card imageSrc="https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" heading="Carta" text="esto es un texto" />
-          <Card imageSrc="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" heading="Carta 2" text="Cest la vie" />
+      </div>
 
-        </div>
+      {/*Cartas */}
+      <div className="mx-auto max-w-screen-xl gap-10 flex justify-center items-center">
 
-      </section>
+        <Card imageSrc="\imagenes\card.jpg" heading="Carta" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+        <Card imageSrc="\imagenes\card1.jpg" heading="Carta 2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+      </div>
+
+
+
+      <div className="max-w-screen-xl mx-auto flex justify-between">
+        <SmallCard />
+      </div>
+
     </main>
   );
 }
