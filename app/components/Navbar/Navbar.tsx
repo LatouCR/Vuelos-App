@@ -21,6 +21,7 @@ const Navbar = () => {
             V-Vuelos
           </span>
         </Link>
+
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
           {session?.user ? (

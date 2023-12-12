@@ -9,18 +9,18 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ heading, text, imageSrc }) => {
   return (
-    <div className="max-w-2xl bg-white border border-gray-200 rounded-xl shadow overflow-hidden">
+    <div className="max-w-2xl bg-white border border-gray-200 rounded-xl overflow-hidden">
       <Link href="/vuelos" className="block box-border overflow-hidden">
-      <img
+        <img
           className="w-full h-auto object-cover rounded-t-xl md:w-[600px] md:h-[400px]"
           src={imageSrc}
           alt=""
         />
       </Link>
       <div className="p-8 bg-primary rounded-b-xl">
-        <a href="/vuelos">
+        <Link href="/vuelos">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{heading}</h5>
-        </a>
+        </Link>
         <p className="mb-3 font-normal text-white">{text}</p>
         <Link
           href="/vuelos"
