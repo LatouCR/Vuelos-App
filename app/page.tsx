@@ -292,7 +292,7 @@ export default function Home() {
       {/*Cartas */}
       <div className="mx-auto max-w-screen-xl gap-10 flex justify-center items-center">
 
-        <Card imageSrc="\imagenes\card.jpg" heading="Carta" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+        <Card imageSrc="\imagenes\card.jpg" heading="Nicaragua" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
         <Card imageSrc="\imagenes\card1.jpg" heading="Carta 2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
       </div>
 
