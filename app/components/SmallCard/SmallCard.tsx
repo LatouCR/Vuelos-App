@@ -24,7 +24,7 @@ const SmallCard: FunctionComponent<CardProps> = ({ heading, text, imageSrc }) =>
           </h5>
           <p className='font-normal text-black'>
             {text}
-          </p>2
+          </p>
         </Link>
       </div>
     </div>
