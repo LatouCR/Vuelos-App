@@ -1,6 +1,60 @@
-import NextAuth from 'next-auth'
-import { options } from './options'
+import NextAuth, { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import GoogleProvider from "next-auth/providers/google";
+import { db } from "@/lib/db";
+import bcrypt from "bcrypt";
 
-const handler = NextAuth(options)
+export const authOptions: NextAuthOptions = {
+  adapter: PrismaAdapter(db),
 
-export { handler as GET, handler as POST }
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+  }),
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text", placeholder: "username" },
+        password: { label: "Password", type: "password", placeholder: "*****" },
+      },
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) {
+          return null;
+        }
+
+        const existingUser = await db.user.findUnique({
+          where: { email: credentials.email },
+        });
+
+        if (!existingUser) {
+          return null;
+        }
+
+        const passwordMatch = await bcrypt.compare(
+          credentials.password,
+          existingUser.password
+        );
+
+        if (!passwordMatch) {
+          return null;
+        }
+
+        return {
+          id: "${existingUser.id}}",
+          email: existingUser.email,
+          username: existingUser.username,
+        };
+      },
+    }),
+  ],
+  session: {
+    strategy: 'jwt',
+  },
+  
+};
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
