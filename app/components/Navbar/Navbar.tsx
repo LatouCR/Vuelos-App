@@ -30,14 +30,9 @@ const Navbar = () => {
               <Link href="/dashboard">Dashboard</Link>
               </div>
 
-              <p className="font-bold">
+              <p className="font-bold text-white">
                 {session.user.name}
               </p>
-              <img
-                src={session.user.image}
-                alt=""
-                className="w-10 h-10 rounded-full cursor-pointer"
-              />
               <button
                 className="text-white bg-accent font-bold hover:bg-accent-light focus:ring-4 focus:outline-none focus:ring-white rounded-full text-sm px-4 py-2 text-center inline-flex items-center"
                 onClick={async () => {
@@ -46,7 +41,7 @@ const Navbar = () => {
                   })
                 }}
               >
-                Logout
+                Cerrar Sesion
               </button>
             </div>
           ) : (
@@ -67,7 +62,7 @@ const Navbar = () => {
                   d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              Sign In
+              Iniciar Sesion
             </button>
           )}
 
@@ -132,6 +127,14 @@ const Navbar = () => {
                 className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-accent-light"
               >
                 Cronograma
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/register"
+                className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-accent-light"
+              >
+                Registrar
               </Link>
             </li>
           </ul>
