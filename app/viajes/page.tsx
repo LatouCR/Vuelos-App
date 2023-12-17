@@ -1,4 +1,5 @@
 export default function Home() {
+  
     return (
       <main className="bg-background">
         <div className='flex items-center justify-center h-screen'>

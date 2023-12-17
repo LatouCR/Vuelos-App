@@ -8,11 +8,99 @@ generator client {
   previewFeatures = ["referentialActions"]
 }
 
+// Model User
 model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  username String @unique
-  password String
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  role      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reservations Reserva[]
+
+  admin   Admin? @relation(fields: [adminId], references: [id])
+  adminId Int?
+}
+
+// Model Admin
+model Admin {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  consecutivos Consecutivo[]
+  users        User[]
+}
+
+// Model Consecutivo
+model Consecutivo {
+  id               Int     @id @default(autoincrement())
+  descripcion      String
+  prefijo          String?
+  rangoInicial     Int?
+  rangoFinal       Int?
+  poseeRango       Boolean
+  valorConsecutivo Int
+
+  adminId Int?
+  admin   Admin? @relation(fields: [adminId], references: [id])
+}
+
+// Model Reserva
+model Reserva {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  vuelo     Vuelo    @relation(fields: [vueloId], references: [id])
+  vueloId   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Model Vuelo
+model Vuelo {
+  id                  Int       @id @default(autoincrement())
+  codigoAerolinea     Int
+  origenCodigoPais    Int
+  destinoCodigoPais   Int
+  codigoPuertaSalida  Int
+  codigoPuertaLlegada Int
+  fechaSalida         DateTime  @default(now())
+  fechaLlegada        DateTime  @default(now())
+  estadoVuelo         String
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  Reserva             Reserva[]
+}
+
+// Model Aerolinea
+model Aerolinea {
+  id        Int      @id @default(autoincrement())
+  nombre    String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Model Pais
+model Pais {
+  id          Int      @id @default(autoincrement())
+  pais_Nombre String   @unique
+  paisID      Int      @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Model PuertaAeropuerto
+model PuertaAeropuerto {
+  id        Int      @id @default(autoincrement())
+  numero    Int
+  detalle   String
+  estado    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

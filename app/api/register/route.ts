@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     const { email, username, password } = body;
-
+    
     //check if email exists
     const existingUserbyEmail = await db.user.findUnique({
       where: { email: email },
