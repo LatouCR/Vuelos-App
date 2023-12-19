@@ -22,7 +22,7 @@ export async function GET(){
 export async function POST(request: Request) {
   try {
     const body  = await request.json();
-     const { id, codigoAerolinea, origenCodigoPais, destinoCodigoPais, codigoPuertaSalida, codigoPuertaLlegada, fechaSalida, estadoVuelo } = body;
+     const { id, codigoAerolinea, origenCodigoPais, destinoCodigoPais, codigoPuertaSalida, codigoPuertaLlegada, precioVuelo, fechaSalida, estadoVuelo } = body;
 
     const newVuelo = await db.vuelo.create({
       data: {
@@ -32,12 +32,17 @@ export async function POST(request: Request) {
         destinoCodigoPais,
         codigoPuertaSalida,
         codigoPuertaLlegada,
+        precioVuelo,
         fechaSalida,
         estadoVuelo,
       },
     });
 
-    return NextResponse.json(newVuelo);
+    return NextResponse.json(
+      { message: "Vuelo creado exitosamente", newVuelo },
+      { status: 201 }
+    );
+
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json(

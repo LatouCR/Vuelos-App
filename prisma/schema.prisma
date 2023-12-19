@@ -73,6 +73,7 @@ model Vuelo {
   fechaSalida         DateTime  @default(now())
   fechaLlegada        DateTime  @default(now())
   estadoVuelo         String
+  precioVuelo         Int
   createdAt           DateTime  @default(now())
   updatedAt           DateTime  @updatedAt
   Reserva             Reserva[]

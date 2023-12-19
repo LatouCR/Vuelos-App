@@ -9,7 +9,7 @@ export default function Home() {
       <div className="w-screen bg-background-2">
         <div className="py-8 mx-auto max-w-screen-xl">
           <h3 className="m-0 font-bold h-8 text-xl text-white">
-            ¿A dónde quieres volar?
+            ¿Cual es tu proximo destino?
           </h3>
         </div>
       </div>
