@@ -12,7 +12,7 @@ export async function GET(){
           message: "No se encontro ningun vuelo",
         },
         {
-          status: 101,
+          status: 401,
         }
       );
     }
