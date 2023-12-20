@@ -9,7 +9,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { email, username, password } = body;
+    const { email, username, name, password } = body;
     
     //check if email exists
     const existingUserbyEmail = await db.user.findUnique({
@@ -25,6 +25,7 @@ export async function POST(req: Request) {
     const hashedPassword = await hash(password, 10);
     const newUser = await db.user.create({
       data: {
+        name,
         username,
         email,
         password: hashedPassword,
