@@ -70,17 +70,17 @@ model Reserva {
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   vuelo     Vuelo    @relation(fields: [vueloId], references: [id])
-  vueloId   Int
+  vueloId   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 //Model Vuelo
 model Vuelo {
-  id                  Int       @id @default(autoincrement())
+  id                  String    @id @default(cuid())
   codigoAerolinea     Int
-  origenCodigoPais    String
-  destinoCodigoPais   String
+  origenCodigoPais    String?
+  destinoCodigoPais   String?
   codigoPuertaSalida  Int
   codigoPuertaLlegada Int
   fechaSalida         DateTime  @default(now())
@@ -102,7 +102,7 @@ model Aerolinea {
 
 // Model Pais
 model Pais {
-  id          String      @id @default(cuid())
+  id          String   @id @default(cuid())
   pais_Nombre String   @unique
   paisID      Int      @unique
   createdAt   DateTime @default(now())
@@ -111,7 +111,7 @@ model Pais {
 
 // Model PuertaAeropuerto
 model PuertaAeropuerto {
-  id        String      @id @default(cuid())
+  id        String   @id @default(cuid())
   numero    Int
   detalle   String
   estado    String
