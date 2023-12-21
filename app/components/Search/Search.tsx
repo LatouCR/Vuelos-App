@@ -73,7 +73,7 @@ const Search = () => {
                             <div className="w-fit">
                                 <label htmlFor="Pasajeros"></label>
                                 <select id="Pasajeros" className="inline-flex justify-center items-center p-2 gap-1 bg-transparent">
-                                    <option selected>Pasajeros</option>
+                                    <option defaultValue={0}>Pasajeros</option>
                                     <option value="1">1 Pasajero</option>
                                     <option value="2">2 Pasajeros</option>
                                     <option value="3">3 Pasajeros</option>

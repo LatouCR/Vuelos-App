@@ -66,19 +66,20 @@ model VerificationToken {
 
 // Model Reserva
 model Reserva {
-  id        String   @id @default(cuid())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
-  vuelo     Vuelo    @relation(fields: [vueloId], references: [id])
-  vueloId   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            String   @id @default(cuid())
+  user          User     @relation(fields: [userId], references: [id])
+  userId        String
+  vuelo         Vuelo    @relation(fields: [vueloId], references: [id])
+  vueloId       String
+  precioReserva Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
 //Model Vuelo
 model Vuelo {
   id                  String    @id @default(cuid())
-  codigoAerolinea     Int
+  codigoAerolinea     String
   origenCodigoPais    String?
   destinoCodigoPais   String?
   codigoPuertaSalida  Int
