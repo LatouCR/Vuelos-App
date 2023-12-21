@@ -15,9 +15,11 @@ type Vuelo = {
   precioVuelo: number;
 };
 
-const Vuelos = () => {
+const Cronograma: React.FC = () => {
 
   const [vuelos, setVuelos] = useState<Vuelo[]>([]);
+  const [mostrarLlegadas, setMostrarLlegadas] = useState<boolean>(true);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,20 +43,17 @@ const Vuelos = () => {
       }
     };
 
-    fetchData(); // Invoke fetchData on component mount
+    fetchData();
   }, []);
 
   const destinoCodigoPais = (destinoCodigoPais: String) => {
     switch (destinoCodigoPais) {
       case "AP-01":
-        return <p>New York City (JFK)</p>;//Añadir el codigo del pais
+        return <p>New York City (JFK)</p>;
       case "AP-02":
         return <p>Los Angeles (LAX)</p>;
-      // Add cases for values 3 to 10
-      // Example:
       case "AP-03":
         return <p>Tokyo (HND)</p>;
-      // ... Repeat for values 4 to 10
       case "AP-04":
         return <p>London (LHR)</p>;
       case "AP-05":
@@ -81,7 +80,7 @@ const Vuelos = () => {
         return <p>Moscow (SVO)</p>;
 
       default:
-        return null; // Render nothing for other values
+        return null;
 
     }
   };
@@ -90,20 +89,33 @@ const Vuelos = () => {
     switch (codigoAerolinea) {
       case "AER-01":
         return <p>American Airlines</p>;
+      case "AER-02":
+        return <p>Copa Airlines</p>;
+      case "AER-03":
+        return <p>SkyJet Airways</p>;
+      case "AER-04":
+        return <p>Quantum Airways</p>;
+      case "AER-05":
+        return <p>Qatar Airways</p>;
+      case "AER-06":
+        return <p>Spirit Airlines</p>;
+      case "AER-07":
+        return <p>JetBlue Airways</p>;
+      case "AER-08":
+        return <p>PacificExpress</p>;
+      default:
+        return null;
     }
   };
 
   const origenCodigoPaisRenderer = (origenCodigoPais: String) => {
     switch (origenCodigoPais) {
       case "AP-01":
-        return <p>New York City (JFK)</p>;//Añadir el codigo del pais
+        return <p>New York City (JFK)</p>;
       case "AP-02":
         return <p>Los Angeles (LAX)</p>;
-      // Add cases for values 3 to 10
-      // Example:
       case "AP-03":
         return <p>Tokyo (HND)</p>;
-      // ... Repeat for values 4 to 10
       case "AP-04":
         return <p>London (LHR)</p>;
       case "AP-05":
@@ -128,49 +140,53 @@ const Vuelos = () => {
         return <p>Vancouver (YVR)</p>;
       case "AP-15":
         return <p>Moscow (SVO)</p>;
-
-
-
       default:
         return null; // Render nothing for other values
     }
   };
 
+  const vuelosAMostrar = mostrarLlegadas ? vuelos.filter(vuelo => vuelo.destinoCodigoPais) : vuelos.filter(vuelo => vuelo.origenCodigoPais);
+
   return (
     <main className="bg-background h-screen">
-      <div className="mx-auto max-w-screen-xl">
+      <div className="mx-auto max-w-screen-xl justify-center items-center ">
+        <div className="flex justify-center items-center">
+          <button onClick={() => setMostrarLlegadas(true)} className="bg-accent rounded-t-md border border-white px-10 py-3 inline-flex items-center gap-4">
+            <img src="imagenes\landing.svg" alt="" className="w-10 h-10" />
+            Ver Llegadas
+          </button>
+          <button onClick={() => setMostrarLlegadas(false)} className="bg-accent rounded-t-md border border-white px-10 py-3 inline-flex items-center gap-4">
+            <img src="imagenes\takeoff.svg" alt="" className="w-10 h-10"/>
+            Ver Salidas
+          </button>
+        </div>
         <table className="table-auto w-full my-4">
           <thead className=" bg-slate-200 font-semibold text-text">
             <tr>
               <th>Vuelo</th>
               <th>Aerolínea</th>
-              <th>Origen</th>
-              <th>Destino</th>
+              {mostrarLlegadas ? <th>Origen</th> : <th>Destino</th>}
               <th>Fecha Salida</th>
               <th>Fecha Llegada</th>
               <th>Estado</th>
-              <th>Precio</th>
             </tr>
           </thead>
           <tbody className="text-text text-center">
-            {vuelos.map((vuelo) => (
+            {vuelosAMostrar.map((vuelo) => (
               <tr key={vuelo.id}>
                 <td className="border">{vuelo.id}</td>
-                <td className="border">{origenCodigoPaisRenderer(vuelo.origenCodigoPais)}</td>  
-                <td className="border">{destinoCodigoPais(vuelo.destinoCodigoPais)}</td>
-                <td className="border">{vuelo.destinoCodigoPais}</td>
+                <td className="border">{codigoAerolinea(vuelo.codigoAerolinea)}</td>
+                <td className="border">{mostrarLlegadas ? origenCodigoPaisRenderer(vuelo.origenCodigoPais) : destinoCodigoPais(vuelo.destinoCodigoPais)}</td>
                 <td className="border">{new Date(vuelo.fechaLlegada).getHours()}:{new Date(vuelo.fechaLlegada).getMinutes()}</td>
                 <td className="border">{new Date(vuelo.fechaSalida).getHours()}:{new Date(vuelo.fechaSalida).getMinutes()}</td>
                 <td className="border">{vuelo.estadoVuelo}</td>
-                <td className="border">${vuelo.precioVuelo}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </main>
-
   );
 };
 
-export default Vuelos;
+export default Cronograma;

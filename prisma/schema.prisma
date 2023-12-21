@@ -74,6 +74,28 @@ model Reserva {
   precioReserva Int
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+  Compra        Compra[]
+}
+
+// Model Compra
+model Compra {
+  id           String   @id @default(cuid())
+  nombreUser   String
+  reserva      Reserva  @relation(fields: [reservaId], references: [id])
+  reservaId    String
+  precioCompra Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+//Model Tarjeta
+model Tarjeta {
+  Num_Tarjeta Int     @id
+  Mes_Exp     Int
+  Date_Exp    Int
+  CVV         Int
+  Monto       Decimal
+  Tipo        String
 }
 
 //Model Vuelo

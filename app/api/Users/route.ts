@@ -1,6 +1,7 @@
 
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
+import { string } from "zod";
 
 export async function GET(){
     try{
@@ -18,6 +19,28 @@ export async function GET(){
         );
       }
     }
+}
+
+export async function POST(req: Request) {
+  try {
+    const { email } = await req.json(); // Assuming 'id' is in the request body
+    const user = await db.user.findUnique({
+      where: {
+        email: email,
+      },
+      select: {
+        id: true,
+        // Add other fields you want to select
+      }
+    });
+    return NextResponse.json(user);
+  } catch (error) {
+    console.error('Error in GET_ID:', error);
+    return NextResponse.json(
+      { message: 'Could not get user' },
+      { status: 401 }
+    );
+  } 
 }
 
 export async function PUT(req: Request) {
