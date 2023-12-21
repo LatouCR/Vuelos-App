@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 type FormValues = {
     email: string
-    nombre: string
+    name: string
     apellido: string
     username: string
     password: string
@@ -27,6 +27,7 @@ export default function Form() {
                 method: 'POST',
                 body: JSON.stringify({
                     email: data.email,
+                    name: data.name,
                     username: data.username,
                     password: data.password,
                 }),
@@ -86,7 +87,7 @@ export default function Form() {
                                         Nombre
                                     </label>
                                     <input
-                                        {...register('nombre', { required: true })}
+                                        {...register('name', { required: true })}
                                         className="block w-full rounded-md border-0 p-3  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         type="text"
                                     />
@@ -94,7 +95,7 @@ export default function Form() {
                                 </div>
 
                                 <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
-                                    <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                                    <label htmlFor="lastname" className="block text-sm font-medium leading-6 text-gray-900">
                                         Apellido
                                     </label>
                                     <input
@@ -108,7 +109,7 @@ export default function Form() {
 
                             <div className='flex flex-wrap -mx-3 mb-6'>
                                 <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
-                                    <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                                    <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
                                         Nombre de Usuario
                                     </label>
                                     <input
@@ -133,7 +134,7 @@ export default function Form() {
                             </h3>
 
                             <div>
-                                <label htmlFor="Contraseña" className="block text-sm font-medium leading-6 text-gray-900">
+                                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                     Correo Electronico
                                 </label>
                                 <input
@@ -148,7 +149,7 @@ export default function Form() {
 
 
                                 <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
-                                    <label htmlFor="Contraseña" className="block text-sm font-medium leading-6 text-gray-900">
+                                    <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                         Contraseña
                                     </label>
                                     <input
@@ -160,7 +161,7 @@ export default function Form() {
                                 </div>
 
                                 <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
-                                    <label htmlFor="Contraseña" className="block text-sm font-medium leading-6 text-gray-900">
+                                    <label htmlFor="passwordConfirmation" className="block text-sm font-medium leading-6 text-gray-900">
                                         Verificar Contraseña
                                     </label>
                                     <input
