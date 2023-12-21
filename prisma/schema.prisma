@@ -76,6 +76,16 @@ model Reserva {
   updatedAt     DateTime @updatedAt
 }
 
+//Model Compra
+model Compra {
+  Num_Tarjeta Int     @id
+  Mes_Exp     Int
+  Date_Exp    Int
+  CVV         Int
+  Monto       Decimal
+  Tipo        String
+}
+
 //Model Vuelo
 model Vuelo {
   id                  String    @id @default(cuid())

@@ -3,13 +3,14 @@ import { useSession } from "next-auth/react"
 import Link from "next/link"
 
 export default function Home() {
-  
-    return (
-      <main className="bg-background">
-        <div className='flex items-center justify-center h-screen'>
-          <h1 className='text-6xl text-slate-800'>Viajes</h1>
-        </div>
-      </main>
-    )
-  }
-  
+
+  const { data: session, status } = useSession()
+
+  return (
+    <main className="bg-background">
+      <div className='flex items-center justify-center h-screen'>
+        <h1 className='text-6xl text-slate-800'>Viajes</h1>
+      </div>
+    </main>
+  )
+}

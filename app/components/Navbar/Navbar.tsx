@@ -131,14 +131,6 @@ const Navbar = () => {
                   Cronograma
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/register"
-                  className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-accent-light"
-                >
-                  Registrar
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
@@ -265,14 +257,6 @@ const Navbar = () => {
                 className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-accent-light"
               >
                 Cronograma
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/register"
-                className="block py-2 px-3 md:p-0 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-accent-light"
-              >
-                Registrar
               </Link>
             </li>
           </ul>

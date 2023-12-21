@@ -9,6 +9,9 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
+  pages: {
+    signIn: "/LogIn",
+  },
   adapter: PrismaAdapter(db),
 
   providers: [
