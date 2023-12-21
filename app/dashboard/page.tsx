@@ -1,12 +1,16 @@
-import Breadcrumb from "../components/Breadcrump/Bread"
+"use client"
+import ShopNav from "../components/ShopNav/ShopNav"
 
-export default function Home() {
-    return (
-      <main className="bg-background">
-        <Breadcrumb />
-        
 
-      </main>
-    )
-  }
-  
+export default function Example() {
+
+  return (
+    <main>
+      <div>
+        hola
+      </div>
+    </main>
+
+
+  )
+}

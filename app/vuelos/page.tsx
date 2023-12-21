@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from 'react';
 import Search from "../components/Search/Search";
+import Menu from "../components/Menu/Menu";
 
 
 type Vuelo = {
@@ -21,6 +22,10 @@ type Vuelo = {
 const Vuelos = () => {
 
   const [vuelos, setVuelos] = useState<Vuelo[]>([]);
+  const [cart, setCart] = useState<Vuelo[]>([]);
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedFlight, setSelectedFlight] = useState<Vuelo | null>(null);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,9 +91,29 @@ const Vuelos = () => {
   const codigoAerolinea = (codigoAerolinea: string) => {
     switch (codigoAerolinea) {
       case "AER-01":
-        return <img src="\imagenes\AE1.png" alt="" className="w-[128px] mt-4"/>
+        return <img src="\imagenes\AE1.png" alt="" className="w-[128px] mt-4" />
     }
   };
+
+  const addToCart = (vuelo: Vuelo) => {
+    setCart((prevCart) => [...prevCart, vuelo]);
+  };
+
+  const addToCartAndClosePopup = (vuelo: Vuelo) => {
+    addToCart(vuelo); // Assuming addToCart is a function to add to the cart
+    closePopup();
+  };
+
+  const openPopup = (vuelo: Vuelo) => {
+    setSelectedFlight(vuelo);
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setSelectedFlight(null);
+    setShowPopup(false);
+  };
+
 
   return (
     <main className="bg-background">
@@ -126,9 +151,10 @@ const Vuelos = () => {
                 <p className="text-xs">Por pasajero.</p>
                 {/* "Ver Oferta"" */}
                 <div className="py-3">
-                  <Link href={`/ofertas/${vuelo.id}`} className="text-white bg-gray-100 font-bold hover:bg-accent focus:ring-4 focus:outline-none focus:ring-white rounded-full text-sm px-6 py-2 text-center inline-flex items-center">
+                  <button className="text-white bg-gray-100 font-bold hover:bg-accent focus:ring-4 focus:outline-none focus:ring-white rounded-full text-sm px-6 py-2 text-center inline-flex items-center"
+                    onClick={() => openPopup(vuelo)} >
                     Ver Oferta
-                  </Link>
+                  </button>
                 </div>
 
               </div>
@@ -143,7 +169,13 @@ const Vuelos = () => {
         ))}
 
         <div className="p-6">
-
+          {showPopup && selectedFlight && (
+            <Menu
+              vuelo={selectedFlight}
+              onClose={closePopup}
+              addToCartAndClosePopup={addToCartAndClosePopup}
+            />
+          )}
         </div>
       </div>
     </main>
