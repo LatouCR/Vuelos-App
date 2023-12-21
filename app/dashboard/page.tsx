@@ -1,13 +1,14 @@
 "use client"
-import ShopNav from "../components/ShopNav/ShopNav"
+import Breadcrumb from "../components/Breadcrump/Bread"
 
 
 export default function Example() {
 
   return (
-    <main>
-      <div>
-        hola
+    <main className="h-screen bg-white">
+      <Breadcrumb />  
+      <div className="justify-center items-center">
+        DASHBOARD SOLO ADMINS
       </div>
     </main>
 

@@ -20,4 +20,4 @@ export default withAuth(
     }
 )
 
-export const config = { matcher: ["/viajes", "/dashboard"] }
+export const config = { matcher: ["/viajes", "/dashboard", "/reservation"] }

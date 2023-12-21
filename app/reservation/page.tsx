@@ -114,7 +114,7 @@ const ReservationPage = () => {
             case "AER-07":
                 return <p>JetBlue Airways</p>;
             case "AER-08":
-                return <p>PacificExpress</p>;
+                return <p>Avianca</p>;
             default:
                 return null;
         }

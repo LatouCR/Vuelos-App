@@ -52,46 +52,100 @@ const Vuelos = () => {
     fetchData(); // Invoke fetchData on component mount
   }, []);
 
-  const destinoCodigoPais = (destinoCodigoPais: String) => {
+  const destinoRender = (destinoCodigoPais: String) => {
     switch (destinoCodigoPais) {
-      case "AP-01":
-        return <p><strong>Destino:</strong> New York City (JFK)</p>;//Añadir el codigo del pais
-      case "AP-02":
-        return <p><strong>Destino:</strong> Los Angeles (LAX)</p>;
-      // Add cases for values 3 to 10
-      // Example:
-      case "AP-03":
-        return <p><strong>Destino:</strong> Tokyo (HND)</p>;
-      // ... Repeat for values 4 to 10
-      case "AP-04":
-        return <p><strong>Destino:</strong> San Jose (SJO)</p>;
-      default:
-        return null; // Render nothing for other values
-    }
-  };
+        case "AP-01":
+            return <p>New York City (JFK)</p>;
+        case "AP-02":
+            return <p>Los Angeles (LAX)</p>;
+        case "AP-03":
+            return <p>Tokyo (HND)</p>;
+        case "AP-04":
+            return <p>London (LHR)</p>;
+        case "AP-05":
+            return <p>Paris (CDG)</p>;
+        case "AP-06":
+            return <p>Beijing (PEK)</p>;
+        case "AP-07":
+            return <p>Dubai (DXB)</p>;
+        case "AP-08":
+            return <p>Toronto (YYZ)</p>;
+        case "AP-09":
+            return <p>Panama City (PTY)</p>;
+        case "AP-10":
+            return <p>San Jose (SJO)</p>;
+        case "AP-11":
+            return <p>Rio de Janeiro (GIG)</p>;
+        case "AP-12":
+            return <p>Miami (MIA)</p>;
+        case "AP-13":
+            return <p>Seoul (ICN)</p>;
+        case "AP-14":
+            return <p>Vancouver (YVR)</p>;
+        case "AP-15":
+            return <p>Moscow (SVO)</p>;
 
-  const origenCodigoPaisRenderer = (origenCodigoPais: String) => {
-    switch (origenCodigoPais) {
-      case "AP-01":
-        return <p><strong>Origen:</strong> New York City (JFK)</p>;//Añadir el codigo del pais
-      case "AP-02":
-        return <p><strong>Origen:</strong> Los Angeles (LAX)</p>;
-      // Add cases for values 3 to 10
-      // Example:
-      case "AP-03":
-        return <p><strong>Origen:</strong> Tokyo (HND)</p>;
-      // ... Repeat for values 4 to 10
-      case "AP-04":
-        return <p><strong>Origen:</strong> San Jose (SJO)</p>;
-      default:
-        return null; // Render nothing for other values
+        default:
+            return null;
+
     }
-  };
+};
+
+  const origenRenderer = (origenCodigoPais: String) => {
+    switch (origenCodigoPais) {
+        case "AP-01":
+            return <p>New York City (JFK)</p>;
+        case "AP-02":
+            return <p>Los Angeles (LAX)</p>;
+        case "AP-03":
+            return <p>Tokyo (HND)</p>;
+        case "AP-04":
+            return <p>London (LHR)</p>;
+        case "AP-05":
+            return <p>Paris (CDG)</p>;
+        case "AP-06":
+            return <p>Beijing (PEK)</p>;
+        case "AP-07":
+            return <p>Dubai (DXB)</p>;
+        case "AP-08":
+            return <p>Toronto (YYZ)</p>;
+        case "AP-09":
+            return <p>Panama City (PTY)</p>;
+        case "AP-10":
+            return <p>San Jose (SJO)</p>;
+        case "AP-11":
+            return <p>Rio de Janeiro (GIG)</p>;
+        case "AP-12":
+            return <p>Miami (MIA)</p>;
+        case "AP-13":
+            return <p>Seoul (ICN)</p>;
+        case "AP-14":
+            return <p>Vancouver (YVR)</p>;
+        case "AP-15":
+            return <p>Moscow (SVO)</p>;
+        default:
+            return null; // Render nothing for other values
+    }
+};
 
   const codigoAerolinea = (codigoAerolinea: string) => {
     switch (codigoAerolinea) {
       case "AER-01":
         return <img src="\imagenes\AE1.png" alt="" className="w-[128px] mt-4" />
+      case "AER-02":
+        return <img src="\imagenes\AE2.svg" alt="" className="w-[80px] mt-4" />
+      case "AER-03":
+        return <img src="\imagenes\AE3.svg" alt="" className="w-[128px] mt-4" />
+      case "AER-04":
+        return <img src="\imagenes\AE4.png" alt="" className="w-[128px] mt-4" />
+      case "AER-05":
+        return <img src="\imagenes\AE5.png" alt="" className="w-[60px] mt-4" />
+      case "AER-06":
+        return <img src="\imagenes\AE6.png" alt="" className="w-[128px] mt-4" />
+      case "AER-07":
+        return <img src="\imagenes\AE7.png" alt="" className="w-[128px] mt-4" />
+      case "AER-08":
+        return <img src="\imagenes\AE8.png" alt="" className="w-[80px] mt-4" />
     }
   };
 
@@ -135,8 +189,8 @@ const Vuelos = () => {
           <div key={vuelo.id} className="my-6 px-4 pt-4 border rounded-xl text-text text-xl bg-white shadow-md shadow-primary/30">
             <div className="flex justify-between">
               <div className="text-lg max-w-xs w-full">
-                {origenCodigoPaisRenderer(vuelo.origenCodigoPais)}
-                {destinoCodigoPais(vuelo.destinoCodigoPais)}
+                {origenRenderer(vuelo.origenCodigoPais)}
+                {destinoRender(vuelo.destinoCodigoPais)}
                 {codigoAerolinea(vuelo.codigoAerolinea)}
 
               </div>

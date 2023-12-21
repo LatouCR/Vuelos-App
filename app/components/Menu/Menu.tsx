@@ -6,7 +6,6 @@ import router from 'next/router';
 
 type Vuelo = {
     id: number;
-    useId: string;
     codigoAerolinea: string;
     origenCodigoPais: string;
     destinoCodigoPais: string;
@@ -66,7 +65,7 @@ const Menu: React.FC<PopupProps> = ({ vuelo, onClose, addToCartAndClosePopup }) 
         }
     };
 
-    const codigoAerolinea = (codigoAerolinea: string) => {
+    const AERender = (codigoAerolinea: string) => {
         switch (codigoAerolinea) {
             case "AER-01":
                 return <p>American Airlines</p>;
@@ -83,7 +82,7 @@ const Menu: React.FC<PopupProps> = ({ vuelo, onClose, addToCartAndClosePopup }) 
             case "AER-07":
                 return <p>JetBlue Airways</p>;
             case "AER-08":
-                return <p>PacificExpress</p>;
+                return <p>Avianca</p>;
             default:
                 return null;
         }
@@ -183,9 +182,11 @@ const Menu: React.FC<PopupProps> = ({ vuelo, onClose, addToCartAndClosePopup }) 
                                                                     <p className="mt-1 text-sm text-gray-500">
                                                                         Fecha: {new Date(vuelo.fechaSalida).getDay()} de {new Date(vuelo.fechaSalida).getMonth()} de {new Date(vuelo.fechaSalida).getFullYear()}
                                                                     </p>
+                                                                    
                                                                 </div>
                                                                 <div className="flex flex-1 items-end justify-between text-sm">
-                                                                    <p className="text-gray-500">{destinoRender(vuelo.destinoCodigoPais)} a {origenRenderer(vuelo.origenCodigoPais)}</p>
+                                                                    <p className="text-gray-500">{origenRenderer(vuelo.origenCodigoPais)} a {destinoRender(vuelo.destinoCodigoPais)}</p>
+                                                                    <p className="text-text">{AERender(vuelo.codigoAerolinea)}</p>
                                                                 </div>
                                                             </div>
                                                         </li>
